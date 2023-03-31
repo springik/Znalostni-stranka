@@ -9,8 +9,8 @@
 </head>
 <body>
 
-    <div class="justify-content-center middle position-absolute"> <!-- class="translate-middle" z nějakého důvodu u mě nefunguje klasicky odstreli vse do stratosfery -->
-        <form action="registration-server.php" method="post">
+    <div class="text-center mt-5 w-auto justify-content-center align-items-center d-flex"> <!-- class="translate-middle" z nějakého důvodu u mě nefunguje klasicky odstreli vse do stratosfery -->
+        <form class="" action="registration-server.php" method="post">
             <div class="mb-3">
                 <label for="first-name-input" class="form-label">First name</label>
                 <input oninput="validate()" type="text" class="form-control" name="first-name-input" required>
