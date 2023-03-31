@@ -8,7 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
-    <?php //include_once "navbar.php"; ?>
 
     <div class="justify-content-center middle position-absolute"> <!-- class="translate-middle" z nějakého důvodu u mě nefunguje klasicky odstreli vse do stratosfery -->
         <form action="registration-server.php" method="post">
@@ -26,11 +25,11 @@
             </div>
             <div class="mb-3">
                 <label for="password-input" class="form-label">Password</label>
-                <input oninput="validate()" type="text" class="form-control" name="password-input" required>
+                <input oninput="validate()" type="text" class="form-control" id="password-input" name="password-input" required>
             </div>
             <div class="mb-3">
                 <label for="password-check-input" class="form-label">Password again</label>
-                <input oninput="validate()" type="text" class="form-control" name="password-check-input" required>
+                <input oninput="validate()" type="text" class="form-control" id="password-check-input" name="password-check-input" required>
             </div>
             <div class="mb-3">
                 <label for="email-input" class="form-label">Email</label>
@@ -40,11 +39,9 @@
                 <label for="about-input" class="form-label">About you</label>
                 <input oninput="validate()" type="text" class="form-control" name="about-input">
             </div>
-            <!--<button disabled type="submit" class="btn btn-warning" name="submit-btn">Submit</button> -->
-            <input type="submit" value="Submit" class="btn btn-warning" name="submit-btn" disabled>
+            <button disabled type="submit" class="btn btn-warning" id="submit-btn" name="submit-btn">Submit</button>
         </form>
     </div>
-
     <script>
         function validate() {
             console.log("validating...");
