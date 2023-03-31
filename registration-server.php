@@ -1,6 +1,6 @@
 <?php
     include "connection.php";
-    
+    session_start();
     $first_name = $_POST['first-name-input'];
     $last_name = $_POST['last-name-input'];
     $password = $_POST['password-input'];
@@ -9,16 +9,34 @@
     $about = $_POST['about-input'];
 
     echo $first_name . ' ' . $last_name . ' ' . $username . ' ' . $password . ' ' . $email . ' ' . $about;
-    if(!empty($about || !is_null($about))) {
+    $uniqueVerificationQuery = "SELECT username, email FROM users";
+    $result = $connect->query($uniqueVerificationQuery);
+    $_SESSION['uniqueCheck'] = true;
+    while($row = $result->fetch_assoc())
+    {
+        var_dump($row);
+        if($row['username'] == $username || $row['email'] == $email)
+        {
+            $_SESSION['uniqueCheck'] = false;
+        }
+    }
+    
+    $query = "";
+    if(!empty($about) || !is_null($about) && $_SESSION['uniqueCheck'] == true) {
         $query = "INSERT INTO users (first_name, last_name, username, password, email, about)
         VALUES ('$first_name', '$last_name', '$username', '$password', '$email', '$about');";
     }
-    else
+    else if($_SESSION["uniqueCheck"] == true)
     {
         $query = "INSERT INTO users (first_name, last_name, username, password, email, about)
         VALUES ('$first_name', '$last_name', '$username', '$password', '$email', NULL);";
     }
+    if(!empty($query))
+    {   
+        $connect->query($query);
+    }
 
-    $connect->query($query);
+    header("Location: registration.php");
+    die();
 ?>
         

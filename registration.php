@@ -9,8 +9,8 @@
 </head>
 <body>
 
-    <div class="justify-content-center middle position-absolute"> <!-- class="translate-middle" z nějakého důvodu u mě nefunguje klasicky odstreli vse do stratosfery -->
-        <form action="registration-server.php" method="post">
+    <div class="text-center mt-5 w-auto justify-content-center align-items-center d-flex"> <!-- class="translate-middle" z nějakého důvodu u mě nefunguje klasicky odstreli vse do stratosfery -->
+        <form class="" action="registration-server.php" method="post">
             <div class="mb-3">
                 <label for="first-name-input" class="form-label">First name</label>
                 <input oninput="validate()" type="text" class="form-control" name="first-name-input" required>
@@ -41,8 +41,41 @@
             </div>
             <button disabled type="submit" class="btn btn-warning" id="submit-btn" name="submit-btn">Submit</button>
         </form>
+        <?php
+        session_start();
+            if(!is_null($_SESSION["uniqueCheck"]))
+            {
+                if($_SESSION['uniqueCheck'] == false)
+                {
+                    echo "<div id='uniqueAlertCard' class='card position-absolute'>
+                    <div class='card-body'>
+                        <p>
+                            Email or username isn't UNIQUE!
+                        </p>
+                        <p>
+                            Choose a different password, please
+                        </p>
+                        <button onclick='hideCard()' class='btn btn-warning'>
+                            Hide
+                        </button>
+                    </div>";
+                }
+            }
+            else
+            {
+                $_SESSION["uniqueCheck"] = false;
+            }
+    ?>
     </div>
+    </div>
+    
+    
     <script>
+        function hideCard()
+        {
+            card = document.getElementById("uniqueAlertCard");
+            card.remove();
+        }
         function validate() {
             console.log("validating...");
             const password = document.getElementById("password-input");
