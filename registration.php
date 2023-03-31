@@ -11,39 +11,39 @@
     <?php //include_once "navbar.php"; ?>
 
     <div class="justify-content-center middle position-absolute"> <!-- class="translate-middle" z nějakého důvodu u mě nefunguje klasicky odstreli vse do stratosfery -->
-        <form action="" method="post">
+        <form action="registration-server.php" method="post">
             <div class="mb-3">
                 <label for="first-name-input" class="form-label">First name</label>
-                <input oninput="validate()" type="text" class="form-control" id="first-name-input" required>
+                <input oninput="validate()" type="text" class="form-control" name="first-name-input" required>
             </div>
             <div class="mb-3">
                 <label for="last-name-input" class="form-label">Last name</label>
-                <input oninput="validate()" type="text" class="form-control" id="last-name-input" required>
+                <input oninput="validate()" type="text" class="form-control" name="last-name-input" required>
             </div>
             <div class="mb-3">
                 <label for="username-input" class="form-label">Username</label>
-                <input oninput="validate()" type="text" class="form-control" id="username" required>
+                <input oninput="validate()" type="text" class="form-control" name="username-input" required>
             </div>
             <div class="mb-3">
                 <label for="password-input" class="form-label">Password</label>
-                <input oninput="validate()" type="text" class="form-control" id="password-input" required>
+                <input oninput="validate()" type="text" class="form-control" name="password-input" required>
             </div>
             <div class="mb-3">
                 <label for="password-check-input" class="form-label">Password again</label>
-                <input oninput="validate()" type="text" class="form-control" id="password-check-input" required>
+                <input oninput="validate()" type="text" class="form-control" name="password-check-input" required>
             </div>
             <div class="mb-3">
                 <label for="email-input" class="form-label">Email</label>
-                <input oninput="validate()" type="email" class="form-control" id="email-input" required>
+                <input oninput="validate()" type="email" class="form-control" name="email-input" required>
             </div>
             <div class="mb-3">
                 <label for="about-input" class="form-label">About you</label>
-                <input oninput="validate()" type="text" class="form-control" id="about-input">
+                <input oninput="validate()" type="text" class="form-control" name="about-input">
             </div>
-            <button disabled type="submit" class="btn btn-warning" id="submit-btn">Submit</button>
+            <!--<button disabled type="submit" class="btn btn-warning" name="submit-btn">Submit</button> -->
+            <input type="submit" value="Submit" class="btn btn-warning" name="submit-btn" disabled>
         </form>
     </div>
-    
 
     <script>
         function validate() {
