@@ -41,8 +41,41 @@
             </div>
             <button disabled type="submit" class="btn btn-warning" id="submit-btn" name="submit-btn">Submit</button>
         </form>
+        <?php
+        session_start();
+            if(!is_null($_SESSION["uniqueCheck"]))
+            {
+                if($_SESSION['uniqueCheck'] == false)
+                {
+                    echo "<div id='uniqueAlertCard' class='card position-absolute'>
+                    <div class='card-body'>
+                        <p>
+                            Email or username isn't UNIQUE!
+                        </p>
+                        <p>
+                            Choose a different password, please
+                        </p>
+                        <button onclick='hideCard()' class='btn btn-warning'>
+                            Hide
+                        </button>
+                    </div>";
+                }
+            }
+            else
+            {
+                $_SESSION["uniqueCheck"] = false;
+            }
+    ?>
     </div>
+    </div>
+    
+    
     <script>
+        function hideCard()
+        {
+            card = document.getElementById("uniqueAlertCard");
+            card.remove();
+        }
         function validate() {
             console.log("validating...");
             const password = document.getElementById("password-input");
