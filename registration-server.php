@@ -10,13 +10,13 @@
 
     echo $first_name . ' ' . $last_name . ' ' . $username . ' ' . $password . ' ' . $email . ' ' . $about;
     if(!empty($about || !is_null($about))) {
-        $query = "INSERT INTO users (first_name, last_name, password, email, about)
-        VALUES ('$first_name', '$last_name', '$username', '$email', '$about');";
+        $query = "INSERT INTO users (first_name, last_name, username, password, email, about)
+        VALUES ('$first_name', '$last_name', '$username', '$password', '$email', '$about');";
     }
     else
     {
-        $query = "INSERT INTO users (first_name, last_name, password, email, about)
-        VALUES ('$first_name', '$last_name', '$username', '$email', NULL);";
+        $query = "INSERT INTO users (first_name, last_name, username, password, email, about)
+        VALUES ('$first_name', '$last_name', '$username', '$password', '$email', NULL);";
     }
 
     $connect->query($query);
