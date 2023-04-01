@@ -25,11 +25,11 @@
             </div>
             <div class="mb-3">
                 <label for="password-input" class="form-label">Password</label>
-                <input oninput="validate()" type="text" class="form-control" id="password-input" name="password-input" required>
+                <input oninput="validate()" type="password" class="form-control" id="password-input" name="password-input" required>
             </div>
             <div class="mb-3">
                 <label for="password-check-input" class="form-label">Password again</label>
-                <input oninput="validate()" type="text" class="form-control" id="password-check-input" name="password-check-input" required>
+                <input oninput="validate()" type="password" class="form-control" id="password-check-input" name="password-check-input" required>
             </div>
             <div class="mb-3">
                 <label for="email-input" class="form-label">Email</label>
@@ -37,7 +37,7 @@
             </div>
             <div class="mb-3">
                 <label for="about-input" class="form-label">About you</label>
-                <input oninput="validate()" type="text" class="form-control" name="about-input">
+                <input oninput="validate()" type="text-area" class="form-control" name="about-input">
             </div>
             <button disabled type="submit" class="btn btn-warning" id="submit-btn" name="submit-btn">Submit</button>
         </form>
@@ -60,10 +60,6 @@
                         </button>
                     </div>";
                 }
-            }
-            else
-            {
-                $_SESSION["uniqueCheck"] = false;
             }
     ?>
     </div>
