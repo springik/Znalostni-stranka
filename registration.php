@@ -11,35 +11,36 @@
 
     <div class="text-center mt-5 w-auto justify-content-center align-items-center d-flex"> <!-- class="translate-middle" z nějakého důvodu u mě nefunguje klasicky odstreli vse do stratosfery -->
         <form class="" action="registration-server.php" method="post">
-            <div class="mb-3">
+            <div class="mb-3 mx-2">
                 <label for="first-name-input" class="form-label">First name</label>
                 <input oninput="validate()" type="text" class="form-control" name="first-name-input" required>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 mx-2">
                 <label for="last-name-input" class="form-label">Last name</label>
                 <input oninput="validate()" type="text" class="form-control" name="last-name-input" required>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 mx-2">
                 <label for="username-input" class="form-label">Username</label>
                 <input oninput="validate()" type="text" class="form-control" name="username-input" required>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 mx-2">
                 <label for="password-input" class="form-label">Password</label>
-                <input oninput="validate()" type="text" class="form-control" id="password-input" name="password-input" required>
+                <input oninput="validate()" type="password" class="form-control" id="password-input" name="password-input" required>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 mx-2">
                 <label for="password-check-input" class="form-label">Password again</label>
-                <input oninput="validate()" type="text" class="form-control" id="password-check-input" name="password-check-input" required>
+                <input oninput="validate()" type="password" class="form-control" id="password-check-input" name="password-check-input" required>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 mx-2">
                 <label for="email-input" class="form-label">Email</label>
                 <input oninput="validate()" type="email" class="form-control" name="email-input" required>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 mx-2">
                 <label for="about-input" class="form-label">About you</label>
-                <input oninput="validate()" type="text" class="form-control" name="about-input">
+                <input oninput="validate()" type="text-area" class="form-control" name="about-input">
             </div>
             <button disabled type="submit" class="btn btn-warning" id="submit-btn" name="submit-btn">Submit</button>
+            <a class="link-warning d-block mb-3 mx-2 mt-1" href="login.php">Log-in</a>
         </form>
         <?php
         session_start();
@@ -60,10 +61,6 @@
                         </button>
                     </div>";
                 }
-            }
-            else
-            {
-                $_SESSION["uniqueCheck"] = false;
             }
     ?>
     </div>
