@@ -20,20 +20,25 @@
             $_SESSION['uniqueCheck'] = false;
         }
     }
-    
+
+    $historyCreationQuery = "INSERT INTO test_histories (user_id)
+    VALUES ((SELECT user_id FROM users WHERE email = '$email'));";
     $query = "";
     if(!empty($about) || !is_null($about) && $_SESSION['uniqueCheck'] == true) {
         $query = "INSERT INTO users (first_name, last_name, username, password, email, about)
-        VALUES ('$first_name', '$last_name', '$username', '$password', '$email', '$about');";
+        VALUES ('$first_name', '$last_name', '$username', '$password', '$email', '$about');
+        ";
     }
     else if($_SESSION["uniqueCheck"] == true)
     {
         $query = "INSERT INTO users (first_name, last_name, username, password, email, about)
-        VALUES ('$first_name', '$last_name', '$username', '$password', '$email', NULL);";
+        VALUES ('$first_name', '$last_name', '$username', '$password', '$email', NULL);
+        ";
     }
     if(!empty($query))
     {   
         $connect->query($query);
+        $connect->query($historyCreationQuery);
     }
 
     header("Location: registration.php");
