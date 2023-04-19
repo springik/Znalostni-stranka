@@ -39,9 +39,11 @@
     {   
         $connect->query($query);
         $connect->query($historyCreationQuery);
+        $_SESSION["email"] = $email;
+        header("Location: profile.php");
     }
 
-    header("Location: registration.php");
+   
     die();
 ?>
         
