@@ -18,6 +18,7 @@
     if(!is_null($result->fetch_object())) {
         $_SESSION["logged_in"] = true;
         $_SESSION["loginSuccess"] = true;
+        $_SESSION["email"] = $email;
         header("Location: profile.php");
         die();
     }
