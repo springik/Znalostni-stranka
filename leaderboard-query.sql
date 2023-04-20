@@ -2,7 +2,7 @@ SELECT user_table.user_id as userID, user_table.username, subquery.completion_co
 FROM users as user_table
 JOIN test_histories ON user_table.user_id = test_histories.user_id
 JOIN test_completion ON test_completion.history_id = test_histories.history_id
-JOIN 
+LEFT JOIN
 (
 	SELECT COUNT(completion_id) as completion_count, test_histories.user_id
     FROM users
@@ -13,4 +13,5 @@ JOIN
 ) as subquery
 ON subquery.user_id = user_table.user_id
 GROUP BY user_table.username
-ORDER BY completion_count DESC, prumer_procent DESC;
+ORDER BY completion_count DESC, prumer_procent DESC
+LIMIT 5;
