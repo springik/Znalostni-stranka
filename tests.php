@@ -13,6 +13,7 @@
         session_start();
         include "navbar.php";
         include "connection.php";  
+        $_SESSION["testCompleted"] = false;
         ?>
          <h1>  Available Tests: </h1>
          <table style="width:50%">
@@ -33,6 +34,7 @@
                  </tr>";
             }
           }
+          $_SESSION["testCompleted"] = false;
          ?>
 
 <script >

@@ -27,6 +27,7 @@ table, th, td {
         $first_name = $row["first_name"];
         $last_name = $row["last_name"];
         $user_id = $row["user_id"];
+        $_SESSION["userId"] = $user_id;
     ?>
     <div class="mx-3 mt-3">
         <h1>  Profile info : </h1>
@@ -61,13 +62,13 @@ table, th, td {
                     if($percantageCompleted >= 80){
                         echo "<tr>
                         <td>$testName</td>
-                        <td style='background-color: green;'>$percantageCompleted </td>
+                        <td style='background-color: green;'>$percantageCompleted% </td>
                         <td>$completionDate </td>
                       </tr>";
                     }else{
                         echo "<tr>
                         <td >$testName</td>
-                        <td style='background-color: red;'>$percantageCompleted </td>
+                        <td style='background-color: red;'>$percantageCompleted% </td>
                         <td>$completionDate </td>
                       </tr>";
                     }
@@ -77,6 +78,7 @@ table, th, td {
                 }
             
             }
+            
 
     
 ?>
