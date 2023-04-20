@@ -31,12 +31,25 @@
         $order = 1;
         while($row = $result->fetch_assoc())
         {
+          if($row['completion_count'] != "")
+          {
             echo "<tr>
             <th scope='row'>{$order}</th>
             <td>{$row['username']}</td>
             <td>{$row['completion_count']}</td>
             <td>{$row['prumer_procent']}</td>
             </tr>";
+          }
+          else
+          {
+            echo "<tr>
+            <th scope='row'>{$order}</th>
+            <td>{$row['username']}</td>
+            <td>-</td>
+            <td>{$row['prumer_procent']}</td>
+            </tr>";
+          }
+           $order++; 
         }
         echo "
         </tbody>
