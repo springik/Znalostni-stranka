@@ -49,7 +49,7 @@ table, th, td {
         </tr>
         <?php
 
-             $profileSeedQuery = "SELECT tests.name,test_completion.percentage ,test_completion.completion_time FROM `test_completion` JOIN test_histories on test_histories.history_id = test_completion.history_id JOIN users on test_histories.user_id = users.user_id JOIN tests on tests.test_id = test_completion.test_id where users.user_id = $user_id;";
+$profileSeedQuery = "SELECT tests.name,test_completion.percentage ,test_completion.completion_time FROM `test_completion` JOIN test_histories on test_histories.history_id = test_completion.history_id JOIN users on test_histories.user_id = users.user_id JOIN tests on tests.test_id = test_completion.test_id where users.user_id = $user_id ORDER BY test_completion.completion_time DESC;";
              $result = $connect->query($profileSeedQuery);
              if ($result->num_rows > 0) {
                 // output data of each row
