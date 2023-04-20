@@ -44,7 +44,7 @@ table, th, td {
         <table style="width:50%">
          <tr>
            <th>Test</th>
-           <th>Percantage of completion</th>
+           <th>Percentage</th>
            <th>Date of completion</th>
         </tr>
         <?php
