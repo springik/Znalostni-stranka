@@ -8,16 +8,20 @@
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-dark text-light">
         <?php
         session_start();
         include "navbar.php";
         include "connection.php";  
+        $_SESSION["testCompleted"] = false;
         ?>
-         <h1>  Available Tests: </h1>
-         <table style="width:50%">
+         <p class="h1 text-warning">  Available Tests: </p>
+         <table class="table table-stripped table-dark text-center">
          <tr>
-           <th>Name of the Test </th>        
+           <th>Name of the Test </th>
+           <th>
+
+           </th>       
          </tr>
 
         <?php 
@@ -29,10 +33,11 @@
             $nameOfTheTest = $row["name"];
                    echo "<tr>
                    <td>$nameOfTheTest</td>
-                   <td>  <button class='testButton' id='$nameOfTheTest'>Start Test</button> </td>
+                   <td>  <button class='testButton btn btn-warning text-tertiary' id='$nameOfTheTest'>Start Test</button> </td>
                  </tr>";
             }
           }
+          $_SESSION["testCompleted"] = false;
          ?>
 
 <script >
