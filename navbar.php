@@ -11,6 +11,5 @@
                 <a class="nav-link text-light" href="leaderboard.php">Leaderboard</a>
             </li>
         </ul>
-        <form action="login.php"><input type="submit"  value="Log Out" style="margin-left : 20%;"/></form>
- <br>
+        <form action="login.php"><input class="btn btn-warning text-secondary" type="submit"  value="Log Out" style="margin-left : 20%;"/></form>
 </nav>

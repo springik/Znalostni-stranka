@@ -12,7 +12,7 @@ table, th, td {
 </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
-<body class="bg-secondary">
+<body class="bg-dark">
     <?php
         session_start();
         include "navbar.php";
@@ -30,22 +30,21 @@ table, th, td {
         $_SESSION["userId"] = $user_id;
     ?>
     <div class="mx-3 mt-3">
-        <h1>  Profile info : </h1>
-        <p id="profileUsername">Username : <?=$username?></p>
-        <p id="profileFirstName">First Name: <?=$first_name?></p>
-        <p id="profileLastName">Last Name : <?=$last_name?></p>
-        <p id="profileEmail">Email : <?=$email?></p>
-        <p id="profileAbout">About you : <?=$about?></p>
+        <p class="h1 text-warning" id="profileUsername">Username : <?=$username?></p>
+        <p class="h3 text-light" id="profileFirstName">First Name: <?=$first_name?></p>
+        <p class="h3 text-light" id="profileLastName">Last Name : <?=$last_name?></p>
+        <p class="h4 text-light" id="profileEmail">Email : <?=$email?></p>
+        <p class="h5 text-light" id="profileAbout">About you : <?=$about?></p>
        
     </div>
     <br>
     <div>
-    <h1>  Test Results: </h1>
-        <table style="width:50%">
+    <p class="h1 text-warning">  Test Results: </p>
+        <table class="table table-dark text-center" style="width:50%">
          <tr>
-           <th>Test</th>
-           <th>Percentage</th>
-           <th>Date of completion</th>
+           <th scope="col">Test</th>
+           <th scope="col">Percentage</th>
+           <th scope="col">Date of completion</th>
         </tr>
         <?php
 

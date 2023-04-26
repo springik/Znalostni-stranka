@@ -8,15 +8,15 @@
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
-<body>
+<body class = "bg-dark">
     
 <?php
         session_start();
         include "navbar.php";
         include "connection.php"; 
         if(isset($_COOKIE['whichTest'])) { 
-            echo "welcome ".$_COOKIE['whichTest'];
-            $testName= $_COOKIE['whichTest'];
+            echo "<p class = 'h1 text-warning'>Welcome " . $_COOKIE['whichTest'] . '</p>';
+            $testName = $_COOKIE['whichTest'];
         }
         ?>
     
@@ -37,8 +37,7 @@
             $questionAnswers = $row['answers'];
             $questionAnswers = str_replace(array('"','[',']'),' ',$questionAnswers);
             $questionAnswers = explode(',',$questionAnswers);
-            echo "<br>";
-            echo "<p>$questionName</p>";
+            echo "<p class = 'h3 text-light'>$questionName</p>";
             $length = count( $questionAnswers);
             for ($i=0; $i < $length ; $i++) { 
                 $value = $i+1;
@@ -46,7 +45,7 @@
                 echo" <input type='radio' id='$questionName$value' name='$questionName' value='$value'>";
                 if(!is_null($_SESSION["testCompleted"])) {
                     if($_SESSION["testCompleted"] == false){
-                        echo"  <label style='color:black; id ='$questionName$value' for='$questionName$value'>$questionAnswers[$i]</label><br>";
+                        echo"  <label style='color:white; id ='$questionName$value' for='$questionName$value'>$questionAnswers[$i]</label><br>";
 
                     }else{
                         if($_SESSION[ "Question".$index] == $value  ){
@@ -87,10 +86,10 @@
 
         if(!is_null($_SESSION["testCompleted"])) {
             if($_SESSION["testCompleted"] == false){
-                echo" <input type='submit' value='Submit'>";
+                echo" <input class = 'text-light btn btn-warning' type='submit' value='Submit'>";
             
             }else{
-                echo "Percantage of completion : ".round($_SESSION["percantage"])."%";
+                echo "<p class = 'text-light'>Percentage of completion : ".round($_SESSION["percantage"])."%</p>";
             }
 
         }
