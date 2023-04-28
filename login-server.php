@@ -10,7 +10,7 @@
     }
 
     $email = $_POST['email-input'];
-    $password = $_POST['password-input'];
+    $password = hash("sha256", $_POST["password-input"]);
 
     echo $email . ' ' . $password;
     $loginQuery = "SELECT email, password FROM users WHERE email = '$email' AND password = '$password';";

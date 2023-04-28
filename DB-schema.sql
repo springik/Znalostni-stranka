@@ -84,7 +84,7 @@ CREATE TABLE `users` (
   `last_name` varchar(64) NOT NULL,
   `email` varchar(32) NOT NULL,
   `about` varchar(128) DEFAULT NULL,
-  `password` varchar(32) NOT NULL
+  `password` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `questions`

@@ -3,14 +3,15 @@
     session_start();
     $first_name = $_POST['first-name-input'];
     $last_name = $_POST['last-name-input'];
-    $password = $_POST['password-input'];
+    $password = hash("sha256", $_POST["password-input"]);
     $username = $_POST['username-input'];
     $email = $_POST['email-input'];
     $about = $_POST['about-input'];
 
-    echo $first_name . ' ' . $last_name . ' ' . $username . ' ' . $password . ' ' . $email . ' ' . $about;
+    //echo $first_name . ' ' . $last_name . ' ' . $username . ' ' . $password . ' ' . $email . ' ' . $about;
     $uniqueVerificationQuery = "SELECT username, email FROM users";
     $result = $connect->query($uniqueVerificationQuery);
+    
     $_SESSION['uniqueCheck'] = true;
     while($row = $result->fetch_assoc())
     {
